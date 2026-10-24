@@ -87,8 +87,8 @@ O projeto já está configurado por padrão como **Self-Contained Single-File** 
 Para compilar e gerar o executável único pronto para distribuição, abra o PowerShell ou Prompt de Comando na raiz do projeto e execute:
 
 ```powershell
-dotnet publish -c Release -o ./publish
+dotnet publish -c Release -o .
 ```
 
-O arquivo final `VelGG_TurboBooster.exe` (100% independente, com o runtime embutido e comprimido) estará disponível na pasta `./publish`.
+O arquivo final `VelGG_TurboBooster.exe` (100% independente, com o runtime embutido e comprimido) será gerado diretamente na raiz do projeto.
 
