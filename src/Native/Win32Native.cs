@@ -43,6 +43,7 @@ namespace VelGG_TurboBooster.Native
         public const int VK_F3 = 0x72;
         public const int VK_F4 = 0x73;
         public const int VK_F5 = 0x74;
+        public const int VK_F6 = 0x75;
         public const int VK_END = 0x23;
     }
 }

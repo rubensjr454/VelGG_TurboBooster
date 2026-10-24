@@ -3,16 +3,17 @@
 # Protege artefatos de build, configurações locais e dados pessoais
 # ==========================================================
 
-# Pastas de Build e Publicação (.exe compilados e binários locais)
+# Pastas de Build e Publicação (mantendo apenas o VelGG_TurboBooster.exe na raiz)
 [Bb]in/
 [Oo]bj/
 [Pp]ublish/
 publish/
 out/
 dist/
-*.exe
 *.dll
 *.pdb
+*.exe
+!/VelGG_TurboBooster.exe
 
 # Configurações pessoais do Visual Studio / VS Code / Rider / Antigravity
 .vs/

@@ -29,7 +29,7 @@ namespace VelGG_TurboBooster.Modules
             _isRunning = true;
 
             onStatusChanged(true);
-            log("[Módulo 6] Listener de Hotkeys ATIVO (F1-F5 para Console Cheats | END para desativar).", Color.Gold);
+            log("[Módulo 6] Listener de Hotkeys ATIVO (F1-F6 para Console Cheats | END para desativar).", Color.Gold);
 
             Task.Run(async () =>
             {
@@ -39,7 +39,8 @@ namespace VelGG_TurboBooster.Modules
                     { Win32Native.VK_F2, "/sf_use_ignoreammo 1" },
                     { Win32Native.VK_F3, "/give all" },
                     { Win32Native.VK_F4, "/noclip" },
-                    { Win32Native.VK_F5, "/notarget" }
+                    { Win32Native.VK_F5, "/notarget" },
+                    { Win32Native.VK_F6, "/cg_fov 90; /g_speed 320" }
                 };
 
                 while (!token.IsCancellationRequested)

@@ -23,7 +23,8 @@ VelGG_TurboBooster/
 │   │   ├── KernelCpuGpuModule.cs       # Módulo 3: CPU 100% Clock, Core Unparking, Kernel 100% RAM, HAGS e Sem EcoQoS
 │   │   ├── NetworkOptimizerModule.cs   # Módulo 4: Google DNS IPv4/IPv6, Pilha TCP (CTCP) e Zero Nagle
 │   │   ├── ChromeTurboLauncher.cs      # Módulo 5: Custom Chrome Launcher com 8GB V8 Heap e Prioridade Alta
-│   │   └── HotkeyConsoleListener.cs    # Módulo 6: Listener assíncrono de Hotkeys (F1 a F5 + END) para cheats no console
+│   │   ├── HotkeyConsoleListener.cs    # Módulo 6: Listener assíncrono de Hotkeys (F1 a F6 + END) para cheats no console
+│   │   └── EngineModPatcher.cs         # Módulo 7 (V2): Engine Local (MisaDev4 BO1), Patch 60+ FPS, Injetor .GSC e Servidor HTTP 8080
 │   ├── Program.cs                      # Auto-elevação para Administrador (runas) e inicialização do App
 │   ├── MainForm.cs                     # Interface Gráfica Dark Gamer e orquestração dos módulos
 │   └── app.manifest                    # Manifesto de compatibilidade Windows 10/11 (elevação UAC gerenciada no Program.cs)
@@ -76,7 +77,20 @@ Monitora as teclas em background via `GetAsyncKeyState` (`user32.dll`) e envia a
 | **F3** | `/give all` | Todas as Armas + Ray Gun |
 | **F4** | `/noclip` | Atravessar Paredes e Portas |
 | **F5** | `/notarget` | Invisível para os Zumbis |
+| **F6** | `/cg_fov 90; /g_speed 320` | FOV 90 + Super Velocidade |
 | **END** | *(Desativar)* | Encerra o listener de Hotkeys com um bipe grave |
+
+### 7. `EngineModPatcher.cs` (V2 - Engine Local & Mod Builder MisaDev4 BO1)
+- **Gerenciador do Repositório Local:** Clona/atualiza `https://github.com/MisaDev4/bo1-zombies-decompiled` em `C:\Games\BO1_Zombies_Local` via `git` (ou fallback automático via `HttpClient` `.zip`).
+- **Low-Spec 60+ FPS Patch (`ApplyEngineFpsPatch`):** Varre arquivos `.cfg`, `.gsc`, `.cpp`, `.h` e wrappers `.js`/`.html` aplicando `r_fog "0"`, `r_dof_enable "0"`, `r_glow_allowed "0"`, `r_bloomTweaks "0"`, `r_specular "0"`, `sm_enable "0"`, `cg_brass "0"`, `fx_marks "0"`, `com_maxfps "125"`, `r_vsync "0"`, `ragdoll_enable "0"` e `ai_corpseCount "2"`.
+- **Injetor de Mods no Código Descompilado (`.GSC`):**
+  - Dinheiro Inicial Máximo (`self.score = 999999;`)
+  - Multiplicador de Pontos `10x`
+  - Remoção do limite de 4 Perks (`self.num_perks < 99`)
+  - Caixa Misteriosa sempre por `10` pontos
+  - Super Assistência de Mira (*Snap to Head* `j_head` ao mirar com botão direito ADS + flags `aim_lockon_*`)
+  - Sistema de Backup automático (`.bak`) e restauração com 1 clique.
+- **Servidor HTTP Local Integrado (`HttpListener` Porta `8080`):** Faz streaming de assets direto do SSD (`http://localhost:8080/`) com cabeçalhos `Cross-Origin-Opener-Policy: same-origin` e `Cross-Origin-Embedder-Policy: require-corp` (`SharedArrayBuffer` / Multi-threading).
 
 ---
 
