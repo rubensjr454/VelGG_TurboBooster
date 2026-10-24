@@ -1,0 +1,57 @@
+# ==========================================================
+# .gitignore - VelGG_TurboBooster (.NET 8 / Windows Forms)
+# Protege artefatos de build, configurações locais e dados pessoais
+# ==========================================================
+
+# Pastas de Build e Publicação (.exe compilados e binários locais)
+[Bb]in/
+[Oo]bj/
+[Pp]ublish/
+publish/
+out/
+dist/
+*.exe
+*.dll
+*.pdb
+
+# Configurações pessoais do Visual Studio / VS Code / Rider / Antigravity
+.vs/
+.vscode/
+.idea/
+.agent/
+.gemini/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# Arquivos de ambiente, segredos, links privados de lobby ou logs locais
+.env
+*.env
+*.log
+*.tmp
+*.bak
+*lobby_links*.txt
+*personal*
+*secret*
+appsettings.Development.json
+appsettings.Local.json
+
+# Arquivos de sistema e dumps de memória do Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.dmp
+*.hdmp
+*.mdmp
+
+# Pacotes e caches do NuGet
+*.nupkg
+*.snupkg
+project.lock.json
+project.assets.json
+*.nuget.props
+*.nuget.targets
+
